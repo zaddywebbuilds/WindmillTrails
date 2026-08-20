@@ -12,3 +12,6 @@ maps-images/
 # os
 Thumbs.db
 .DS_Store
+
+# raw video downloads (kept locally)
+website-videos/
