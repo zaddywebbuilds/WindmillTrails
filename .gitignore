@@ -1,0 +1,14 @@
+# working / scratch
+_crawl/
+site_home.html
+gmaps_place.html
+maps_urls.json
+shot_gallery.png
+
+# raw source downloads (kept locally, not needed to serve the site)
+website-images/
+maps-images/
+
+# os
+Thumbs.db
+.DS_Store
