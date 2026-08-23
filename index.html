@@ -129,6 +129,8 @@ section[id],footer,div[id]{scroll-margin-top:74px}
 .ph figcaption b{display:block;font-weight:600}
 .ph figcaption i{display:block;font-style:normal;font-weight:400;text-transform:none;letter-spacing:.01em;
   font-size:.7rem;color:rgba(255,249,219,.72);margin-top:2px}
+.bird-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:1.4rem auto 0;max-width:700px}
+.ar34{aspect-ratio:3/4}
 .ar43{aspect-ratio:4/3}.ar169{aspect-ratio:16/9}.ar11{aspect-ratio:1}.ar54{aspect-ratio:5/4}.ar32{aspect-ratio:3/2}
 
 /* ═════════ HERITAGE ═════════ */
@@ -231,6 +233,23 @@ section[id],footer,div[id]{scroll-margin-top:74px}
 .swipe-hint{display:none;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-lt);font-weight:600;margin-top:.5rem;text-align:center}
 .loc-b .dist{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.35rem;display:block}
 
+/* ═════════ REVIEWS ═════════ */
+#revs{background:var(--white)}
+.rev-top{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin:1.5rem 0 0}
+.rev-score{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--forest);line-height:1;text-align:center}
+.rev-stars{color:var(--gold);font-size:.95rem;letter-spacing:.16em;text-align:center;margin-top:.25rem}
+.rev-meta{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-lt);font-weight:600;margin-top:.2rem}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:.4rem}
+.rev{background:var(--parchment);border:1px solid var(--sand);border-radius:var(--rl);padding:1.4rem 1.5rem 1.5rem;display:flex;flex-direction:column}
+.rev q{font-family:'Fraunces',serif;font-size:1.02rem;line-height:1.5;color:var(--txt);quotes:"“" "”";flex:1}
+.rev q::before{content:open-quote;color:var(--gold);font-size:1.5rem;line-height:0;vertical-align:-.15em;margin-right:.1rem}
+.rev q::after{content:close-quote;color:var(--gold);font-size:1.5rem;line-height:0;vertical-align:-.35em;margin-left:.05rem}
+.rev-by{display:flex;align-items:center;gap:.7rem;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--sand)}
+.rev-av{width:34px;height:34px;border-radius:50%;background:var(--forest);color:var(--cream);display:grid;place-items:center;
+  font-size:.72rem;font-weight:600;flex:none;letter-spacing:.02em}
+.rev-who b{display:block;font-size:.83rem;font-weight:600;color:var(--txt)}
+.rev-who span{font-size:.66rem;color:var(--txt-lt);letter-spacing:.04em}
+
 /* ═════════ HOSTS ═════════ */
 #hosts{background:var(--slate);color:var(--cream)}
 #hosts h2,#hosts h3{color:var(--cream)}
@@ -329,7 +348,7 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
 /* ═════════ RESPONSIVE ═════════ */
 @media(max-width:1000px){
   .grid-4{grid-template-columns:repeat(3,1fr)}
-  .act-grid,.loc-grid{grid-template-columns:repeat(2,1fr)}
+  .act-grid,.loc-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
   .reno-grid{grid-template-columns:repeat(3,1fr)}
   .ft-top{grid-template-columns:1fr 1fr}
   .film-grid{grid-template-columns:1fr}
@@ -352,11 +371,13 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
   body{font-size:15.5px}
   .grid-4,.reno-grid,.hm-imgs,.st-imgs{grid-template-columns:1fr 1fr}
   /* card rows become swipeable carousels instead of tall stacks */
+  .rev-grid{grid-template-columns:1fr}
   .act-grid,.loc-grid{display:flex;gap:.7rem;overflow-x:auto;scroll-snap-type:x mandatory;
     scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:.5rem;
     margin-inline:calc(-1 * clamp(1rem,3.5vw,2.2rem));padding-inline:clamp(1rem,3.5vw,2.2rem)}
   .act-grid::-webkit-scrollbar,.loc-grid::-webkit-scrollbar{display:none}
   .act,.loc{flex:0 0 76vw;scroll-snap-align:start}
+  .bird-row{gap:.45rem}
   .swipe-hint{display:block}
   .hm-imgs .ph:first-child,.st-imgs .ph:first-child{grid-column:1/-1}
   .pp-row{gap:.45rem;margin-bottom:.45rem}
@@ -402,6 +423,7 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
       <a href="#activities">Do Nothing</a>
       <a href="#reno">Before &amp; After</a>
       <a href="#local">Nearby</a>
+      <a href="#revs">Reviews</a>
       <a href="#faq">FAQ</a>
       <button class="nav-book">Book Now</button>
     </div>
@@ -463,7 +485,7 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
     <div class="st-imgs rv rv-2">
       <figure class="ph ar169"><img src="./images-web/historic-barn-wide.webp" alt="The century-old wooden barn with its red tin roof" loading="lazy" decoding="async" width="1200" height="900"><figcaption><b>The Old Wood Barn</b><i>Over 100 years old · red tin roof</i></figcaption></figure>
       <figure class="ph ar11"><img src="./images-web/before-wood-barn.webp" alt="The timber barn before restoration work began" loading="lazy" decoding="async" width="1200" height="900"><figcaption><b>Before The Work</b><i>Timber barn, 2020</i></figcaption></figure>
-      <figure class="ph ar11"><img src="./images-web/collage-windmill-oak.webp" alt="The signature live oak and the original windmill site" loading="lazy" decoding="async" width="1200" height="1552"><figcaption><b>The Signature Oak</b><i>Certified 100+ years</i></figcaption></figure>
+      <figure class="ph ar11"><img src="./images-web/signature-oak-canopy.webp" alt="The canopy of the century-old live oak" loading="lazy" decoding="async" width="767" height="1221"><figcaption><b>The Signature Oak</b><i>Certified 100+ years</i></figcaption></figure>
       <figure class="ph ar11"><img src="./images-web/banner-field-logo.webp" alt="Open field looking toward the farm buildings" loading="lazy" decoding="async" width="1200" height="602"><figcaption><b>The Home Field</b><i>Looking to the barns</i></figcaption></figure>
       <figure class="ph ar11"><img src="./images-web/pasture-wide-green.webp" alt="Twelve acres of Bermuda pasture under open sky" loading="lazy" decoding="async" width="1200" height="900"><figcaption><b>The Pasture</b><i>12 acres, Bermuda &amp; Bahia</i></figcaption></figure>
     </div>
@@ -667,6 +689,13 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
         binoculars — it is all seasonally sensitive, and early is better.</p>
     </div>
   </div>
+  <div class="wrap">
+      <div class="bird-row rv rv-3">
+        <figure class="ph ar34"><img src="./images-web/birdhouse-pasture.webp" alt="A nest box on a post at the pasture edge" loading="lazy" decoding="async" width="547" height="884"><figcaption><b>Box At The Pasture</b><i>Open ground, clear approach</i></figcaption></figure>
+        <figure class="ph ar34"><img src="./images-web/birdhouse-in-tree.webp" alt="A nest box fixed high in the live oak" loading="lazy" decoding="async" width="547" height="887"><figcaption><b>Box In The Oak</b><i>Up in the canopy</i></figcaption></figure>
+        <figure class="ph ar34"><img src="./images-web/birdhouse-fence-line.webp" alt="A nest box on a post along the fence line" loading="lazy" decoding="async" width="363" height="548"><figcaption><b>Box On The Fence Line</b><i>Beside the paddocks</i></figcaption></figure>
+      </div>
+  </div>
 </section>
 
 <!-- ══════ ACTIVITIES ══════ -->
@@ -679,7 +708,7 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
     </div>
     <div class="act-grid">
       <article class="act rv">
-        <figure class="ph ar32"><img src="./images-web/collage-wooded-trails.webp" alt="Mulched walking trails through the woods" loading="lazy" decoding="async" width="1200" height="1552"><figcaption><b>The Wooded Trails</b><i>Recently re-mulched</i></figcaption></figure>
+        <figure class="ph ar32"><img src="./images-web/trail-sunlit.webp" alt="A mulched trail running through sunlit woods" loading="lazy" decoding="async" width="584" height="410"><figcaption><b>The Wooded Trails</b><i>Recently re-mulched</i></figcaption></figure>
         <div class="act-b"><h3>The Trails</h3><p>Trails meander through the woods and were recently re-mulched. Two park
           benches sit in the western corners of the pasture for when you have gone far enough.</p></div></article>
       <article class="act rv rv-2">
@@ -695,7 +724,7 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
         <div class="act-b"><h3>Bird Watching</h3><p>Turkeys and deer turn up seasonally. The big oak is a nesting haven,
           and more birdhouses are going in to widen the habitat. Early is better.</p></div></article>
       <article class="act rv rv-2">
-        <figure class="ph ar32"><img src="./images-web/collage-lawn-chairs.webp" alt="Chairs set out on the lawn under the trees" loading="lazy" decoding="async" width="1200" height="1552"><figcaption><b>Chairs On The Lawn</b><i>Under the trees</i></figcaption></figure>
+        <figure class="ph ar32"><img src="./images-web/lawn-chairs-oak.webp" alt="Chairs set out on the lawn beneath the oak" loading="lazy" decoding="async" width="1200" height="1015"><figcaption><b>Chairs On The Lawn</b><i>Under the big oak</i></figcaption></figure>
         <div class="act-b"><h3>Grillin' On The Pit</h3><p>Fire pit, chairs, open sky and nobody within earshot to mind
           how late it runs. Bring something worth cooking.</p></div></article>
       <article class="act rv rv-3">
@@ -728,7 +757,7 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
       <figure class="ph ar43 rv"><img src="./images-web/before-shed-tree.webp" alt="The shed overgrown with a tree against the wall" loading="lazy" decoding="async" width="1200" height="900"><figcaption><b>Overgrown</b><i>Tree against the wall</i></figcaption></figure>
       <figure class="ph ar43 rv rv-2"><img src="./images-web/before-barn-stalls.webp" alt="The original barn stalls before rebuilding" loading="lazy" decoding="async" width="1200" height="900"><figcaption><b>Original Stalls</b><i>Before rebuilding</i></figcaption></figure>
       <figure class="ph ar43 rv rv-3"><img src="./images-web/before-interior-mess.webp" alt="The cluttered interior before clearing" loading="lazy" decoding="async" width="1200" height="900"><figcaption><b>What A Mess</b><i>Interior, 2020</i></figcaption></figure>
-      <figure class="ph ar43 rv rv-4"><img src="./images-web/collage-clearing.webp" alt="Clearing the wild growth from the land" loading="lazy" decoding="async" width="1200" height="800"><figcaption><b>Clearing</b><i>Wild growth coming out</i></figcaption></figure>
+      <figure class="ph ar43 rv rv-4"><img src="./images-web/clearing-felled-timber.webp" alt="Felled timber cleared from the pastureland" loading="lazy" decoding="async" width="620" height="535"><figcaption><b>Clearing</b><i>Wild growth coming out</i></figcaption></figure>
       <figure class="ph ar43 rv rv-5"><img src="./images-web/pasture-farm-buildings.webp" alt="The finished pasture and farm buildings today" loading="lazy" decoding="async" width="1200" height="900"><figcaption><b>Today</b><i>Pasture &amp; buildings</i></figcaption></figure>
     </div>
   </div>
@@ -761,7 +790,7 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
         <p>Running since 1911 and believed on attendance to be the largest free county fair in the USA. Livestock,
           cut flowers, Old McDonald's Farm, the Midway and a PRO Rodeo.</p></div></article>
       <article class="loc rv">
-        <figure class="ph ar169"><img src="./images-web/local-fair-collage.webp" alt="Wooded trails and outdoor gatherings nearby" loading="lazy" decoding="async" width="1200" height="960"><figcaption><b>Woods &amp; Trails</b><i>Outdoors nearby</i></figcaption></figure>
+        <figure class="ph ar169"><img src="./images-web/woods-trail-leaves.webp" alt="A leaf-covered trail through hardwood forest" loading="lazy" decoding="async" width="585" height="410"><figcaption><b>Hardwood Forest</b><i>Trails &amp; woodland nearby</i></figcaption></figure>
         <div class="loc-b"><span class="dist">Bogue Chitto, LA</span><h3>Bogue Chitto State Park</h3>
         <p>1,786 acres of cypress-tupelo swamp, hardwood and upland forest. Water park, hiking and horse trails,
           eleven fishing lakes, camping, cabins and tubing.</p></div></article>
@@ -805,6 +834,46 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
   </div>
 </section>
 
+<!-- ══════ REVIEWS (verbatim from the Evolve listings) ══════ -->
+<section id="revs" class="pad">
+  <div class="wrap">
+    <div class="center sec-head rv">
+      <p class="eyebrow">What Guests Say</p>
+      <h2>Four stays.<br><em>Four five-star reviews.</em></h2>
+      <div class="rev-top">
+        <div>
+          <div class="rev-score">5.0</div>
+          <div class="rev-stars">★★★★★</div>
+        </div>
+        <div style="text-align:left">
+          <div class="rev-meta">4 reviews · Evolve</div>
+          <div class="rev-meta" style="color:var(--txt-mid)">Barn Loft 5.0 · Dairy Cottage 5.0</div>
+        </div>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <blockquote class="rev rv">
+        <q>I did not expect to find such a gem of a place to stay in rural Mississippi. The setting was on an acreage with horses grazing and beautiful sunsets. Whoever decorated had exquisite taste. I even found a welcome sign with my name on it and a well selected gift basket. I cannot wait to return.</q>
+        <div class="rev-by"><span class="rev-av">JS</span>
+          <span class="rev-who"><b>Joy Stevens</b><span>Barn Loft · March 2026</span></span></div>
+      </blockquote>
+      <blockquote class="rev rv rv-2">
+        <q>My stay at the historic barn far exceeded my expectations. It was impeccably decorated, spotlessly clean and the host went far and beyond any place I've stayed. This place is a magical oasis in rural Mississippi. I will return.</q>
+        <div class="rev-by"><span class="rev-av">J</span>
+          <span class="rev-who"><b>Joy</b><span>Barn Loft · Verified review, March 2026</span></span></div>
+      </blockquote>
+      <blockquote class="rev rv rv-3">
+        <q>Wonderful get away. Very peaceful and relaxing. The pics were on point, the host was very responsive, and all in all a great experience. I will definitely try to book this again.</q>
+        <div class="rev-by"><span class="rev-av">CW</span>
+          <span class="rev-who"><b>Casey Walker</b><span>Barn Loft · April 2026</span></span></div>
+      </blockquote>
+    </div>
+    <p class="center" style="margin-top:1.2rem;font-size:.8rem;color:var(--txt-lt)">
+      &ldquo;Was very peaceful and quiet, beautiful piece of property.&rdquo; — Christina Barrios, Dairy Cottage · July 2026
+    </p>
+  </div>
+</section>
+
 <!-- ══════ FAQ ══════ -->
 <section id="faq" class="pad">
   <div class="wrap">
@@ -815,7 +884,7 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
     </div>
     <div class="faq-l rv rv-2">
       <div class="fq"><button class="fq-q">Are children or pets allowed?</button><div class="fq-a"><p>No — no children and no pets. There are horses on this property, and that mix turns dangerous for children and animals alike. We would rather say so up front than have anyone hurt. Thank you for cooperating.</p></div></div>
-      <div class="fq"><button class="fq-q">How do I book?</button><div class="fq-a"><p>Both units are booked through Evolve and Vacasa, or send us your dates using the form on this page and we will come back to you directly. Nightly rates start around $125 and are set by Vacasa. For stalls, paddocks or an RV hookup, call or email — availability there is handled by us.</p></div></div>
+      <div class="fq"><button class="fq-q">How do I book?</button><div class="fq-a"><p>Both units are booked through Evolve and Vacasa, or send us your dates using the form on this page and we will come back to you directly. Nightly rates start at $125. Each unit books separately, or you can take the Dairy Cottage and Barn Loft together as one booking that sleeps four. For stalls, paddocks or an RV hookup, call or email — availability there is handled by us.</p></div></div>
       <div class="fq"><button class="fq-q">Is smoking allowed?</button><div class="fq-a"><p>Smoking is strictly prohibited inside the units. Any evidence of smoking inside results in a fine between $250 and $1,000 and possible eviction. That includes cigarette ash, butts and chewing tobacco left anywhere on the property.</p></div></div>
       <div class="fq"><button class="fq-q">What do I need to bring my horse?</button><div class="fq-a"><p>Three things, all non-negotiable at check-in: a Certificate of Veterinary Inspection issued within 60 days, a negative Coggins test within 6 months, and a signed Windmill Trails Liability Waiver &amp; Release. Feed, hay and shavings can be bought here.</p></div></div>
       <div class="fq"><button class="fq-q">Is there room to turn a big rig around?</button><div class="fq-a"><p>Yes. The property is big-rig friendly with ample turnaround. There is currently one 30-amp hookup with water and sewer, and three more are planned. Call ahead so we can hold it for you.</p></div></div>
@@ -872,7 +941,7 @@ footer{background:var(--ink);color:rgba(255,249,219,.6);padding:2.8rem 0 1.4rem;
       </div>
       <div class="ft-col"><h4>Visit</h4>
         <a href="#stays">The Stays</a><a href="#horses">Horse Motel</a>
-        <a href="#activities">Activities</a><a href="#local">Nearby</a></div>
+        <a href="#activities">Activities</a><a href="#revs">Reviews</a><a href="#local">Nearby</a></div>
       <div class="ft-col"><h4>Practical</h4>
         <a href="https://windmilltrails.com/WelcomeManualDec32025.pdf" target="_blank" rel="noopener">Welcome Manual</a>
         <a href="https://windmilltrails.com/WindmillTrailsLiabilityWaiver.pdf" target="_blank" rel="noopener">Horse Stay Waiver</a>
@@ -1082,32 +1151,31 @@ document.getElementById('pp-form').addEventListener('submit',function(e){
     '<a href="mailto:Support@WindMillTrails.com">✉ Support@WindMillTrails.com</a></div></div>';
 });
 
-/* ═══ SOCIAL PROOF TOAST ═══════════════════════════════════════════
-   PLACEHOLDER DATA — replace with real bookings before going live,
-   or delete this whole block to switch the notifications off.
-   ================================================================ */
-const BOOKINGS=[
-  {who:'Rachel M.',from:'Baton Rouge, LA',what:'booked the Dairy Cottage',ago:'3 days ago',img:'cottage-exterior'},
-  {who:'The Landrys',from:'Hammond, LA',what:'booked the Barn Loft',ago:'5 days ago',img:'loft-exterior-deck'},
-  {who:'Dale &amp; Sue',from:'Brookhaven, MS',what:'reserved two stalls',ago:'6 days ago',img:'barn-aisle'},
-  {who:'Marcus T.',from:'New Orleans, LA',what:'booked a weekend stay',ago:'8 days ago',img:'cottage-porch'},
-  {who:'The Guidrys',from:'Covington, LA',what:'booked an RV hookup',ago:'11 days ago',img:'entrance-gate'},
-  {who:'Karen B.',from:'McComb, MS',what:'reserved a paddock',ago:'12 days ago',img:'paddock-outbuilding'}
+/* ═══ SOCIAL PROOF TOAST ═══════════════════════════════════════
+   Real 5-star reviews pulled verbatim from the property's Evolve
+   listings — not placeholder data. Add new ones here as they come in.
+   ============================================================== */
+const REVIEWS=[
+  {who:'Joy Stevens', unit:'Barn Loft',     when:'March 2026', quote:'Such a gem of a place in rural Mississippi.',        img:'loft-exterior-deck'},
+  {who:'Joy',         unit:'Barn Loft',     when:'March 2026', quote:'Far exceeded my expectations. I will return.',       img:'loft-living-open'},
+  {who:'Casey Walker',unit:'Barn Loft',     when:'April 2026', quote:'Very peaceful and relaxing. The pics were on point.',img:'barn-aisle'},
+  {who:'Christina Barrios',unit:'Dairy Cottage',when:'July 2026',quote:'Peaceful and quiet, beautiful piece of property.', img:'cottage-exterior'}
 ];
 (function(){
   const sp=document.getElementById('sp'), txt=document.getElementById('sp-txt'),
         img=document.getElementById('sp-img'), x=document.getElementById('sp-x');
-  if(!sp||!BOOKINGS.length)return;
+  if(!sp||!REVIEWS.length)return;
   let i=0, killed=false;
   x.addEventListener('click',()=>{killed=true;sp.classList.remove('on')});
   function show(){
     if(killed)return;
-    const b=BOOKINGS[i++%BOOKINGS.length];
-    img.src='./images-web/'+b.img+'.webp';
-    txt.innerHTML='<b>'+b.who+'</b> from '+b.from+' '+b.what+'<span>'+b.ago+' · Windmill Trails</span>';
+    const r=REVIEWS[i++%REVIEWS.length];
+    img.src='./images-web/'+r.img+'.webp';
+    txt.innerHTML='<b>'+r.who+'</b> rated the '+r.unit+' <b style="color:var(--gold)">5★</b>'+
+                  '<span>“'+r.quote+'” · '+r.when+'</span>';
     sp.classList.add('on');
-    setTimeout(()=>{if(!killed)sp.classList.remove('on')},6500);
-    setTimeout(show,15000);
+    setTimeout(()=>{if(!killed)sp.classList.remove('on')},7000);
+    setTimeout(show,16000);
   }
   setTimeout(show,9000);
 })();
