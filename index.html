@@ -39,6 +39,8 @@ h2{font-size:clamp(1.9rem,4.2vw,3.1rem)}
 h3{font-size:clamp(1.25rem,2vw,1.7rem)}
 em{font-style:italic;color:var(--gold)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,3.5vw,2.2rem)}
+/* keep anchor targets clear of the fixed nav */
+section[id],footer,div[id]{scroll-margin-top:74px}
 /* tightened vertical rhythm — no dead space between segments */
 .pad{padding:clamp(2.6rem,5.2vw,4.4rem) 0}
 .eyebrow{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:.8rem}
@@ -1109,6 +1111,15 @@ const BOOKINGS=[
   }
   setTimeout(show,9000);
 })();
+
+/* ═══ WARM HIDDEN TAB IMAGES ═══
+   Images inside a display:none pane never start loading, so switching tabs
+   showed an empty card for a beat. Once the page is idle, quietly fetch them. */
+addEventListener('load',()=>{
+  const warm=()=>document.querySelectorAll('.pane:not(.on) img[loading="lazy"]')
+    .forEach(i=>{i.loading='eager'; if(!i.complete){const p=new Image(); p.src=i.currentSrc||i.src;}});
+  'requestIdleCallback' in window ? requestIdleCallback(warm,{timeout:2500}) : setTimeout(warm,1800);
+});
 
 /* ═══ EXIT-INTENT / DWELL NUDGE ═══ */
 addEventListener('load',()=>{
